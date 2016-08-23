@@ -12,6 +12,7 @@
   <% end %>
   <div class="form-wrapper">
     <div class="form-left">
+    <%= f.collection_select :user_id, User.all, :id, :id %>
     <%= f.text_field :image, placeholder="画像", { class: "form-control image-field" } %>
     <%= f.text_field :title, placeholder="タイトル", { class: "form-control title-field"} %>
     </div>
