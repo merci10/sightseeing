@@ -7,6 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header>
+  <div class="header-left">
+    <%= link_to "SS", root_path %>
+  </div>
+  <% if user_signed_in? %>
+  <div class="header-right">
+    <ul>
+      <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+      <li><%= link_to current_user.image, current_user %></li>
+  <% else %>
+  <div class="header-right">
+    <ul>
+      <li><%= link_to "アカウント作成", new_user_registration_path %></li>
+      <li><%= link_to "ログイン", new_user_session_path %></li>
+    </ul>
+  </div>
+  <% end %>
+</header>
 
 <%= yield %>
 

@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   def update
     file = params[:user][:image]
     @user.set_image(file)
-    if @user.save
+    if @user.update(user_params)
       redirect_to @user, notice: "ユーザー情報が更新されました"
     else
       render :edit

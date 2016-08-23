@@ -38,6 +38,7 @@ header {
   left: 0;
   right: 0;
   background-color: #ffffff;
+  border-bottom: 1px dotted #767676;
 }
 
 .header-left {
