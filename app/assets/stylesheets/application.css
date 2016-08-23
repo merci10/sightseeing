@@ -1,0 +1,108 @@
+/*------- 共通 -------*/
+* {
+  box-sizing: border-box;
+}
+
+html, body,
+ul, ol, li,
+h1, h2, h3, h4, h5, h6, p,
+form, input, div {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Hiragino KaKu Gothic Pro', sans-serif;
+}
+
+.container {
+  width: 1170px;
+  margin: 0 auto;
+}
+
+/*------- top -------*/
+header {
+  height: 60px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+}
+
+.header-left {
+  line-height: 60px;
+  display: inline-block;
+  font-size: 25px;
+  padding-left: 15px;
+  color: #767676;
+}
+
+.header-right {
+  float: right;
+  color: #767676;
+}
+
+.header-right  li {
+  float: left;
+  line-height: 60px;
+  padding: 0 5px 0 10px;
+  border-left: 1px dotted #767676;
+}
+
+.top-wrapper {
+  height: 650px;
+  width: 100%;
+  background-image: url("http://blogs.c.yimg.jp/res/blog-18-38/pureaudio1000/folder/772341/38/64778738/img_0");
+  background-size: 100%;
+  text-align: center;
+}
+
+.bg-inner {
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 650px;
+  width: 100%;
+  padding-top: 250px;
+}
+
+.top-text {
+  color: #ffffff;
+}
+
+.top-text h1 {
+  font-size: 50px;
+  font-weight: bold;
+  letter-spacing: -2px;
+}
+
+.top-text p {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/*------ new edit ------*/
+.form
+/*--------index-------*/
+.notes {
+  width: 850px;
+  margin: 0 auto;
+  background-color: #f7f7f7;
+}
+
+.image {
+  height: 10px;
+  width: 400px;
+  padding: 15px;
+}
+

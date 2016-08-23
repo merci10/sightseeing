@@ -1,0 +1,23 @@
+<%= form_for(@note) do |f| %>
+  <% if @note.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <h2><%= @note.errors.count %>件のエラーがあります。</h2>
+
+      <ul>
+        <% @note.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-wrapper">
+    <div class="form-left">
+    <%= f.text_field :image, placeholder="画像", { class: "form-control image-field" } %>
+    <%= f.text_field :title, placeholder="タイトル", { class: "form-control title-field"} %>
+    </div>
+    <div class="form-right">
+    <%= f.text_area :content, placeholder="コメント", { class: "form-control content-field" } %>
+    </div>
+    <%= f.submit "保存", { class: "btn primary-btn" } %>
+  </div>
+<% end %>
