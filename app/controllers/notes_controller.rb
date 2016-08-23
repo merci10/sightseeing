@@ -46,13 +46,13 @@ class NotesController < ApplicationController
   # DELETE /notes/1.json
   def destroy
     @note.destroy
-    redirect_to notes_path
+    redirect_to notes_path, notice: "投稿が削除されました"
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_note
-      @note = Note.find(params[:id])
+      @note = Note.find(params[:id])_image
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
