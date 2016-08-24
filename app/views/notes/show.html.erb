@@ -3,5 +3,9 @@
 <%= image_tag @note.image, class: "image" %>
 <%= @note.content %>
 
-<%= link_to '編集', edit_note_path(@note.id) %>
-<%= link_to '削除', note_path(@note.id), method: :delete %>
+<% if current_user?(@note.user) %>
+<div>
+  <%= link_to '編集', edit_note_path(@note.id) %>
+  <%= link_to '削除', note_path(@note.id), method: :delete %>
+</div>
+<% end %>

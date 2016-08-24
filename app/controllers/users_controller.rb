@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :current_user, only:[:edit, :update]
 
   # GET /users
   # GET /users.json
@@ -12,27 +13,12 @@ class UsersController < ApplicationController
   def show
   end
 
-  # GET /users/new
-  def new
-    @user = User.new
-  end
-
   # GET /users/1/edit
   def edit
   end
 
   # POST /users
   # POST /users.json
-  def create
-    @user = User.new(user_params)
-    file = params[:user][:image]
-    @user.set_image(file)
-    if @user.save
-      redirect_to @user, notice: "ユーザー情報が保存されました"
-    else
-      render :new
-    end
-  end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
@@ -46,13 +32,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
-  def destroy
-    @user.destroy
-    redirect_to root_path, notice: "ユーザー情報が削除されました"
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -62,5 +41,12 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:name, :email)
+    end
+
+    def current_user
+      user = User.find(params[:id])
+      if !current_user?(user)
+        redirect_to root_path
+      end
     end
 end

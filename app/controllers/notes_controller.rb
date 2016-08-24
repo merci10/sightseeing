@@ -1,6 +1,7 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :current_user, only:[:edit, :update, :destroy]
 
   # GET /notes
   # GET /notes.json
@@ -59,5 +60,12 @@ class NotesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def note_params
       params.require(:note).permit(:image, :title, :content, :user_id)
+    end
+
+    def current_user
+      note = Note.find(params[:id])
+      if !current_user?(note.user)
+        redirect_to root_path
+      end
     end
 end
