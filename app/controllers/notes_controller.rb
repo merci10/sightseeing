@@ -26,9 +26,11 @@ class NotesController < ApplicationController
   # POST /notes
   # POST /notes.json
   def create
-    @note = Note.new(note_params)
+    @note = current_user.note.build(note_params)
+    file = params[:note][:image]
+    @note.set_image(file)
     if @note.save
-      redirect_to note_path(@note.id), notice: "投稿が保存されました"
+      redirect_to @note, notice: "投稿が保存されました"
     else
       render :new
     end
@@ -37,8 +39,10 @@ class NotesController < ApplicationController
   # PATCH/PUT /notes/1
   # PATCH/PUT /notes/1.json
   def update
+    file = params[:note][:user]
+    @note.set_image(file)
     if @note.update(note_params)
-      redirect_to note_path(@note.id), notice: "投稿が更新されました"
+      redirect_to @note, notice: "投稿が更新されました"
     else
       render :edit
     end
@@ -59,7 +63,7 @@ class NotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def note_params
-      params.require(:note).permit(:image, :title, :content, :user_id)
+      params.require(:note).permit(:title, :content)
     end
 
     def current_user
