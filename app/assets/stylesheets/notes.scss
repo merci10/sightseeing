@@ -78,17 +78,22 @@
 }
 
 /*------ index ------*/
-.index-image {
-
+.images-box {
+  padding-bottom: 30px;
 }
 
 .index-images {
   float: left;
-  height: 240px;
   width: 24%;
   margin-top: 3px;
   margin-right: 3px;
 }
 
+.index-image {
+  height: 240px;
+  width: 100%;
+}
+
 .index-title {
+  margin-bottom: 4px;
 }

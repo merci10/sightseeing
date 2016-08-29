@@ -6,15 +6,13 @@
 
 <div class="container-2">
   <div class="images-box">
-    <ul>
-    <% @notes.each do |note| %>
-      <div class="index-image">
-      <%= link_to note_path(note.id) do %>
-        <li><%= image_tag "/user_images/#{note.image}", class: "index-images" %></li>
-        <li><%= note.title %></li>
+      <% @notes.each do |note| %>
+        <div class="index-images">
+          <%= link_to note_path(note.id) do %>
+            <%= image_tag "/user_images/#{note.image}", class: "index-image" %>
+            <p class="index-title"><%= note.title %></p>
+          <% end %>
+        </div>
       <% end %>
-      </div>
-    <% end %>
-    </ul>
   </div>
 </div>
