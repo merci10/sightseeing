@@ -14,8 +14,11 @@
   <% if user_signed_in? %>
   <div class="header-right">
     <ul>
+      <li><%= link_to "投稿する", new_note_path %></li>
+      <li><%= link_to "投稿一覧", notes_path %></li>
       <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-      <li><%= link_to current_user.image, current_user %></li>
+      <li><%= link_to current_user.name, user_path(current_user.id) %></li>
+    </ul>
   <% else %>
   <div class="header-right">
     <ul>

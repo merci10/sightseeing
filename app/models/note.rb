@@ -1,8 +1,9 @@
 class Note < ActiveRecord::Base
-  # validates :image, presence :true
-  # validates :content, length: {maximum: 140}
-  # validates :user_id, presence :true
+  validates :image, presence: true
+  validates :content, length: {maximum: 140}
+  validates :user_id, presence: true
   belongs_to :user
+  has_many :comments
 
   def set_image(file)
     if !file.nil?

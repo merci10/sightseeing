@@ -1,3 +1,98 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/*-------　共通 --------*/
+.form-box {
+  width: 60%;
+  height: 30px;
+  font-size: 14px;
+}
+
+/*------- sign_up sign_in --------*/
+.form-wrapper {
+  background-color: #F5F5F5;
+  text-align: center;
+}
+
+.devise-form {
+  width: 700px;
+  margin: 0 auto;
+  padding: 10px 30px 30px;
+  background-color: #ffffff;
+}
+
+.field {
+  line-height: 30px;
+  margin-top: 20px;
+  text-align: right;
+}
+
+.form-sentence {
+  color: #616161;
+  margin-right: 15px;
+}
+
+.actions {
+  width: 700px;
+  margin: 0 auto;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.submit-btn {
+  width: 70px;
+  height: 40px;
+  font-size: 17px;
+  border: none;
+  color: #ffffff;
+  background-color: #4CAF50;
+}
+
+/*------- show -------*/
+.user-info {
+  float: left;
+  width: 25%;
+  margin-right: 2%;
+  padding: 7px;
+  background-color: #81C784;
+  text-align: center;
+}
+
+.user-image {
+  height: 215px;
+  width: 100%;
+  background-color: white;
+}
+
+.name-mail li {
+  padding: 15px;
+  font-size: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.edit {
+  padding: 15px;
+  background-color: #ffffff;
+  color: #81C784;
+}
+
+.edit-btn {
+  font-size: 20px;
+  display: block;
+}
+
+.image-contents {
+  padding-bottom: 7px;
+  float: left;
+  width: 73%;
+  background-color: #81C784;
+}
+
+.images {
+  float: left;
+  height: 215px;
+  width: 32%;
+  margin: 7px 0 0 7px;
+  background-color: #eee;
+}
+
+/*------- users edit -------*/
+.edit-user {
+}

@@ -1,24 +1,20 @@
-<h1>投稿一覧</h1>
-<div class="notes">
-<ul>
-  <% @notes.each do |note| %>
-    <li>
-      <a href="/notes/<%= note.id %>" >
-        <div class="image"><%= image_tag note.image %></div>
-      </a>
-    </li>
-  <% end %>
-</ul>
+<div class="top-bar">
+  <div class="container-1">
+    投稿一覧
+  </div>
 </div>
 
-<div class="images">
- <div class="image" style="background-color: red;"></div>
- <div class="image" style="background-color: green;"></div>
- <div class="image" style="background-color: blue;"></div>
- <div class="image" style="background-color: black;"></div>
- <div class="image" style="background-color: yellow;"></div>
- <div class="image" style="background-color: white;"></div>
- <div class="image" style="background-color: gray;"></div>
- <div class="image" style="background-color: pink;"></div>
- <div class="image" style="background-color: purple;"></div>
+<div class="container-2">
+  <div class="images-box">
+    <ul>
+    <% @notes.each do |note| %>
+      <div class="index-image">
+      <%= link_to note_path(note.id) do %>
+        <li><%= image_tag "/user_images/#{note.image}", class: "index-images" %></li>
+        <li><%= note.title %></li>
+      <% end %>
+      </div>
+    <% end %>
+    </ul>
+  </div>
 </div>

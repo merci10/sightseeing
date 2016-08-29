@@ -1,7 +1,7 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :current_user, only:[:edit, :update, :destroy]
+  before_action :current, only:[:edit, :update, :destroy]
 
   # GET /notes
   # GET /notes.json
@@ -12,6 +12,7 @@ class NotesController < ApplicationController
   # GET /notes/1
   # GET /notes/1.json
   def show
+    @comments = @note.comments.includes(:user)
   end
 
   # GET /notes/new
@@ -26,7 +27,8 @@ class NotesController < ApplicationController
   # POST /notes
   # POST /notes.json
   def create
-    @note = current_user.note.build(note_params)
+    @note = Note.new(note_params)
+    @note.user_id = current_user.id
     file = params[:note][:image]
     @note.set_image(file)
     if @note.save
@@ -39,7 +41,7 @@ class NotesController < ApplicationController
   # PATCH/PUT /notes/1
   # PATCH/PUT /notes/1.json
   def update
-    file = params[:note][:user]
+    file = params[:note][:image]
     @note.set_image(file)
     if @note.update(note_params)
       redirect_to @note, notice: "投稿が更新されました"
@@ -52,13 +54,13 @@ class NotesController < ApplicationController
   # DELETE /notes/1.json
   def destroy
     @note.destroy
-    redirect_to notes_path, notice: "投稿が削除されました"
+    redirect_to user_path(@note.user.id), notice: "投稿が削除されました"
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_note
-      @note = Note.find(params[:id])_image
+      @note = Note.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -66,7 +68,7 @@ class NotesController < ApplicationController
       params.require(:note).permit(:title, :content)
     end
 
-    def current_user
+    def current
       note = Note.find(params[:id])
       if !current_user?(note.user)
         redirect_to root_path

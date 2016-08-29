@@ -1,11 +1,47 @@
-<p class="notice"><%= notice %></p>
-
-<%= image_tag @note.image, class: "image" %>
-<%= @note.content %>
-
-<% if current_user?(@note.user) %>
-<div>
-  <%= link_to '編集', edit_note_path(@note.id) %>
-  <%= link_to '削除', note_path(@note.id), method: :delete %>
+<div class="top-bar">
+  <div class="container-1">
+    <%= @note.title %>
+  </div>
 </div>
-<% end %>
+<p id="notice" class="notice"><%= notice %></p>
+
+<div class="container-2">
+  <div class="note-show">
+    <div class="each-image">
+      <%= image_tag "/user_images/#{@note.image}", class: "big-image" %>
+    </div>
+    <div class="each-content">
+      <%= @note.content %>
+    </div>
+  </div>
+
+  <% if current_user?(@note.user) %>
+    <div class="btn-wrapper">
+      <%= link_to '編集', edit_note_path(@note.id), class: "edit-mini" %>
+      <%= link_to '削除', note_path(@note.id), class:"delete-mini", method: :delete %>
+    </div>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <%= form_tag note_comments_path(@note.id), method: 'post' do %>
+      <textarea cols="30" name="content" placeholder="コメントする" rows="3" class="comment-box"></textarea>
+      <br><input type="submit" value="投稿" class="submit-btn">
+    <% end %>
+  <% end %>
+
+  <div class="comments">
+    <h3><コメント一覧></h3>
+    <% if !@comments.empty? %>
+      <% @comments.each do |comment| %>
+        <p>
+          <strong><%= link_to comment.user.name, user_path(comment.user_id) %>：</strong>
+          <%= comment.content %>
+        </p>
+      <% end %>
+    <% else %>
+      <p>コメントはまだありません</p>
+    <% end %>
+  </div>
+</div>
+
+

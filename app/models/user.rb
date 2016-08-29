@@ -3,9 +3,10 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  # validates :name, presence: true
-  # validates :email, presence :true, uniqueness :true
+  validates :name, presence: true
+  validates :email, presence: true, uniqueness: true
   has_many :notes
+  has_many :comments
 
   def set_image(file)
     if !file.nil?

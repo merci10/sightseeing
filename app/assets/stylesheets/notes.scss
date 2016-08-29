@@ -1,0 +1,94 @@
+/*------- show ------*/
+.note-show {
+  margin: 0 auto;
+}
+
+.each-image {
+  text-align: center;
+  height: 500px;
+  width: 100%;
+}
+
+.big-image {
+  height: 100%;
+  width: 80%;
+}
+
+.each-content {
+  background-color: #4CAF50;
+  font-size: 16px;
+  padding: 20px;
+  margin-top: 30px;
+  color: white;
+  border-radius: 10px;
+}
+
+.btn-wrapper {
+  margin-top: 20px;
+}
+
+.edit-mini {
+  padding: 5px 10px;
+  margin-right: 20px;
+  background-color: #ffffff;
+  color: #81C784;
+  border: 1px solid #81C784;
+}
+
+.delete-mini {
+  padding: 5px 10px;
+  background-color: #ffffff;
+  color: #FF8A65;
+  border: 1px solid #FF8A65;
+}
+
+.comment-box {
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 15px;
+  border: 1px solid #B0BEC5;
+}
+
+.comments {
+  margin-top: 20px;
+}
+
+.comments h3 {
+  font-weight: normal;
+}
+
+.comments p {
+  margin-top: 5px;
+  color: #757575;
+}
+
+
+/*------- new -------*/
+.new-form, .edit-form {
+  width: 700px;
+  margin: 0 auto;
+  padding: 10px 30px 30px;
+  background-color: #ffffff;
+}
+
+.form-box {
+
+}
+
+/*------ index ------*/
+.index-image {
+
+}
+
+.index-images {
+  float: left;
+  height: 240px;
+  width: 24%;
+  margin-top: 3px;
+  margin-right: 3px;
+}
+
+.index-title {
+}

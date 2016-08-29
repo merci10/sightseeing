@@ -1,12 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :current_user, only:[:edit, :update]
-
-  # GET /users
-  # GET /users.json
-  def index
-    @users = User.all
-  end
+  before_action :set_user
+  before_action :current, only:[:edit, :update]
 
   # GET /users/1
   # GET /users/1.json
@@ -43,10 +37,10 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email)
     end
 
-    def current_user
+    def current
       user = User.find(params[:id])
       if !current_user?(user)
-        redirect_to root_path
+        redirect_to notes_path
       end
     end
 end
