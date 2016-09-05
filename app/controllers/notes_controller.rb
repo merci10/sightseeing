@@ -24,6 +24,12 @@ class NotesController < ApplicationController
   # GET /notes/1.json
   def show
     @comments = @note.comments.includes(:user)
+    @hash = Gmaps4rails.build_markers(@note) do |note, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude
+      marker.infowindow user.description
+      marker.json({title: note.title})
+    end
   end
 
   # GET /notes/new
