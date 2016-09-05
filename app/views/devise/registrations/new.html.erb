@@ -11,6 +11,12 @@
     <%= devise_error_messages! %>
 
     <div class="field">
+      紹介できる都道府県を選ぼう！<br>
+      <%= f.label :prefecture_name, '都道府県', class: "form-sentence prefecture-label" %>
+      <%= f.collection_select :prefecture_name, JpPrefecture::Prefecture.all, :name, :name, include_blank: true, class: "form-box prefecture-box" %>
+    </div>
+
+    <div class="field">
       <%= f.label :name, value: "名前", class: "form-sentence" %>
       <%= f.text_field :name, autofocus: true, class: "form-box" %>
     </div>

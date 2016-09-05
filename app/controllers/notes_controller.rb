@@ -3,6 +3,17 @@ class NotesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :current, only:[:edit, :update, :destroy]
 
+
+  def search
+    @user = User.where('prefecture_name LIKE(?)', "%#{params[:keyword]}%").first
+    @users = User.where('prefecture_name LIKE(?)', "%#{params[:keyword]}%")
+    @search_answers = []
+    @users.each do |user|
+      @search_answers += user.notes
+    end
+    # @search_answers = @search_answers.order("created_at DESC")
+  end
+
   # GET /notes
   # GET /notes.json
   def index
