@@ -11,6 +11,8 @@ class NotesController < ApplicationController
     @users.each do |user|
       @search_answers += user.notes
     end
+    
+    gmaps_markers(@search_answers)
     # @search_answers = @search_answers.order("created_at DESC")
   end
 
@@ -24,11 +26,8 @@ class NotesController < ApplicationController
   # GET /notes/1.json
   def show
     @comments = @note.comments.includes(:user)
-    @hash = Gmaps4rails.build_markers(@note) do |note, marker|
-      marker.lat user.latitude
-      marker.lng user.longitude
-      marker.infowindow user.description
-      marker.json({title: note.title})
+    if @note.address
+      gmaps_markers(@note)
     end
   end
 
@@ -82,7 +81,7 @@ class NotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def note_params
-      params.require(:note).permit(:title, :content)
+      params.require(:note).permit(:title, :content, :address)
     end
 
     def current

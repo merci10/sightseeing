@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
   has_many :notes
   has_many :comments
 
+  # geocoded_by :address
+  # after_validation :geocode
+
   def set_image(file)
     if !file.nil?
       file_name = file.original_filename

@@ -1,0 +1,57 @@
+/*------ home top ------*/
+.top-wrapper {
+  height: 650px;
+  width: 100%;
+  background-image: url("http://blogs.c.yimg.jp/res/blog-18-38/pureaudio1000/folder/772341/38/64778738/img_0");
+  background-size: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.bg-inner {
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 650px;
+  width: 100%;
+  padding-top: 280px;
+}
+
+.top-text {
+  color: #ffffff;
+}
+
+.top-text h1 {
+  font-size: 50px;
+  font-weight: bold;
+  letter-spacing: -2px;
+}
+
+.top-text p {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.searcher {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.bg-inner-2 {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 80px 0;
+  height: 210px;
+  width: 100%;
+}
+
+.search__query {
+  width: 350px;
+  font-size: 20px;
+  border-radius: 4px;
+  margin-right: 2px;
+}
+
+.btn-search {
+  font-size: 19px;
+}

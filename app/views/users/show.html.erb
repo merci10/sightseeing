@@ -9,7 +9,7 @@
 <div class="container-2">
 
   <div class="user-info" >
-    <%= image_for(@user) %>
+      <%= image_for(@user) %>
 
     <div class="name-mail" >
       <ul>
@@ -26,7 +26,7 @@
 
   <div class="image-contents">
     <% @user.notes.each do |note| %>
-      <%= link_to note_path(note.id) do %>
+      <%= link_to note do %>
         <%= image_tag "/user_images/#{note.image}", class: "images" %>
       <% end %>
     <% end %>
@@ -38,6 +38,7 @@
     <div class="images"></div>
     <div class="images"></div>
   </div>
+  <div class="clear"></div>
 
 </div>
 

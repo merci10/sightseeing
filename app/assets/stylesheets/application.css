@@ -16,6 +16,7 @@
 /*------- 共通 -------*/
 * {
   box-sizing: border-box;
+  outline: 0;
 }
 
 html, body,
@@ -30,7 +31,7 @@ li {
   list-style: none;
 }
 
-a {
+a, input {
   text-decoration: none;
   color: inherit;
 }
@@ -62,6 +63,11 @@ body {
   background-color: #616161;
   color: #eee;
 }
+
+.clear {
+  clear: left;
+}
+
 /*------- top -------*/
 header {
   height: 60px;
@@ -70,6 +76,9 @@ header {
   top: 0;
   left: 0;
   right: 0;
+  background-color: #ffffff;
+  z-index: 10;
+  border-bottom: 1px solid #eee;
 }
 
 .header-left {
@@ -78,9 +87,34 @@ header {
   font-family: Dosis, sans-serif;
   font-size: 25px;
   letter-spacing: -3px;
-  padding-left: 15px;
   color: #388E3C;
+  position: relative;
   transition: all .3s;
+}
+
+.left {
+  float: left;
+}
+
+.header-left a {
+  display: inline-block;
+  padding: 0 20px;
+  border-right: 1px solid #eee;
+}
+
+.header-left i {
+  line-height: 60px;
+  margin: 0 10px;
+  color: #eee;
+  float: left;
+}
+
+.header-left input {
+  border: none;
+  line-height: 55px;
+  font-size: 15px;
+  color: black;
+  float: left;
 }
 
 .header-right {
@@ -96,36 +130,12 @@ header {
   transition: all .3s;
 }
 
-.top-wrapper {
-  height: 650px;
-  width: 100%;
-  background-image: url("http://blogs.c.yimg.jp/res/blog-18-38/pureaudio1000/folder/772341/38/64778738/img_0");
-  background-size: 100%;
+footer {
+  padding-top: 25px;
   text-align: center;
-}
-
-.bg-inner {
-  background-color: rgba(0, 0, 0, 0.2);
-  height: 650px;
+  height: 130px;
   width: 100%;
-  padding-top: 250px;
+  background-color: #E0E0E0;
 }
-
-.top-text {
-  color: #ffffff;
-}
-
-.top-text h1 {
-  font-size: 50px;
-  font-weight: bold;
-  letter-spacing: -2px;
-}
-
-.top-text p {
-  font-size: 20px;
-  font-weight: bold;
-  letter-spacing: 2px;
-}
-
 /*------note index-------*/
 

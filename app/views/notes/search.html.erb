@@ -5,7 +5,23 @@
 </div>
 
 <div class="container-2">
-  <div class="images-box">
+
+  <% if !@search_answers.nil? %>
+    <div style='width: 100%;'>
+      <div id="map" style='width: 97%; height: 400px;'></div>
+    </div>
+
+    <script type="text/javascript">
+      handler = Gmaps.build('Google');
+      handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+        markers = handler.addMarkers(<%=raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+      });
+    </script>
+  <% end %>
+
+  <div class="images-box search-index">
       <% @search_answers.each do |note| %>
         <div class="index-images">
           <%= link_to note_path(note.id) do %>
@@ -14,5 +30,6 @@
           <% end %>
         </div>
       <% end %>
+    <div class="clear"></div>
   </div>
 </div>
