@@ -1,7 +1,7 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :current, only:[:edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index]
+  # before_action :current, only:[:edit, :update, :destroy]
 
 
   def search
@@ -16,14 +16,11 @@ class NotesController < ApplicationController
     # @search_answers = @search_answers.order("created_at DESC")
   end
 
-  # GET /notes
-  # GET /notes.json
   def index
     @notes = Note.all
+    @title = "投稿一覧"
   end
 
-  # GET /notes/1
-  # GET /notes/1.json
   def show
     @comments = @note.comments.includes(:user)
     if @note.address
@@ -31,17 +28,13 @@ class NotesController < ApplicationController
     end
   end
 
-  # GET /notes/new
   def new
     @note = Note.new
   end
 
-  # GET /notes/1/edit
   def edit
   end
 
-  # POST /notes
-  # POST /notes.json
   def create
     @note = Note.new(note_params)
     @note.user_id = current_user.id
@@ -54,8 +47,6 @@ class NotesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /notes/1
-  # PATCH/PUT /notes/1.json
   def update
     file = params[:note][:image]
     @note.set_image(file)
@@ -66,8 +57,6 @@ class NotesController < ApplicationController
     end
   end
 
-  # DELETE /notes/1
-  # DELETE /notes/1.json
   def destroy
     @note.destroy
     redirect_to user_path(@note.user.id), notice: "投稿が削除されました"

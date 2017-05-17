@@ -1,6 +1,8 @@
 module ApplicationHelper
   def current_user?(user)
-    current_user.id == user.id
+    if !current_user.nil?
+      current_user.id == user.id
+    end
   end
 
   def gmaps_markers(hash)

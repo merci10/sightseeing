@@ -1,0 +1,6 @@
+<div class="index-images">
+  <%= link_to note_path(note.id) do %>
+    <%= image_tag "/user_images/#{note.image}", class: "index-image" %>
+    <p class="index-title"><%= note.title %></p>
+  <% end %>
+</div>

@@ -26,6 +26,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def like_notes
+    @notes = @user.like_notes
+    @title = "いいね一覧"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

@@ -2,8 +2,11 @@ class Note < ActiveRecord::Base
   validates :image, presence: true
   validates :content, length: {maximum: 140}
   validates :user_id, presence: true
+
   belongs_to :user
   has_many :comments
+  has_many :likes, dependent: :destroy
+
 
   geocoded_by :address
   after_validation :geocode

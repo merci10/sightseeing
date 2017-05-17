@@ -22,7 +22,11 @@
         <%= link_to '編集', edit_user_path(@user.id), class: "edit-btn" %>
       </div>
     <% end %>
+
+  <%= link_to @user.likes.count, like_notes_user_path(@user.id) %>件の投稿にいいね！しています
+  
   </div>
+
 
   <div class="image-contents">
     <% @user.notes.each do |note| %>
